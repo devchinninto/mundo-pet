@@ -27,52 +27,240 @@
         </div>
 
         <div class="date-picker" title="Selecione uma data.">
-          <img src="./src/assets/calendar.svg" alt="Ícone de calendário." class="icon">
-          <input type="date" id="date" name="date" class="input" title="Selecione uma data.">
-          <img src="./src/assets/select.svg" alt="Ícone de seleção." class="arrow">
+          <img
+            src="./src/assets/calendar.svg"
+            alt="Ícone de calendário."
+            class="icon"
+          />
+          <input
+            type="date"
+            id="date"
+            name="date"
+            class="input"
+            title="Selecione uma data."
+          />
+          <img
+            src="./src/assets/select.svg"
+            alt="Ícone de seleção."
+            class="arrow"
+          />
         </div>
       </section>
 
       <section class="schedules">
         <!-- Morning -->
-         <div class="period morning">
+        <div class="period morning">
           <header class="period-header">
-            <img src="./src/assets/morning.svg" alt="Ícone do sol com neblina representando manhã" class="icon">
+            <img
+              src="./src/assets/morning.svg"
+              alt="Ícone do sol com neblina representando manhã"
+              class="icon"
+            />
             <h2 class="period-title">Manhã</h2>
             <span class="period-time">09h-12h</span>
           </header>
           <div class="appointments morning-list"></div>
-         </div>
+        </div>
 
         <!-- Afternoon -->
         <div class="period afternoon">
           <header class="period-header">
-            <img src="./src/assets/afternoon.svg" alt="Ícone do sol com nuvem representando tarde" class="icon">
+            <img
+              src="./src/assets/afternoon.svg"
+              alt="Ícone do sol com nuvem representando tarde"
+              class="icon"
+            />
             <h2 class="period-title">Tarde</h2>
             <span class="period-time">13h-18h</span>
           </header>
           <div class="appointments afternoon-list"></div>
-         </div>
-        
+        </div>
+
         <!-- Night -->
         <div class="period night">
           <header class="period-header">
-            <img src="./src/assets/night.svg" alt="Ícone do sol com nuvem representando tarde" class="icon">
+            <img
+              src="./src/assets/night.svg"
+              alt="Ícone do sol com nuvem representando tarde"
+              class="icon"
+            />
             <h2 class="period-title">Noite</h2>
             <span class="period-time">19h-21h</span>
           </header>
           <div class="appointments night-list"></div>
-         </div>
+        </div>
       </section>
 
-      <button type="button" class="btn primary add-appointment" title="Criar novo agendamento.">Novo agendamento</button>
+      <button
+        type="button"
+        class="btn primary add-appointment"
+        title="Criar novo agendamento."
+      >
+        Novo agendamento
+      </button>
     </main>
 
     <!-- New appointment -->
-     <div class="modal hidden">
-      <div class="modal-content" role="dialog">
+    <div class="modal hidden">
+      <div
+        class="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <header class="modal-header">
+          <div class="title-section">
+            <h2 id="modal-title" class="modal-title">Agende um atendimento</h2>
+            <p class="modal-subtitle">
+              Preencha os dados do cliente para realizar o agendamento:
+            </p>
+          </div>
+          <button type="button" class="modal-close" aria-label="Fechar">
+            <img
+              class="modal-close-icon"
+              src="src/assets/close.svg"
+              alt="Ícone de fechar."
+            />
+          </button>
+        </header>
 
+        <form id="form" class="appointment-form">
+          <div class="form-group">
+            <label class="form-label" for="tutor-name">Nome do tutor</label>
+            <div class="form-field text">
+              <img
+                class="form-icon"
+                src="src/assets/tutor.svg"
+                alt="Ícone de user."
+              />
+              <input
+                class="form-input"
+                type="text"
+                id="tutor-name"
+                name="tutor-name"
+                placeholder="Helena Souza"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="pet-name">Nome do pet</label>
+            <div class="form-field text">
+              <img
+                class="form-icon"
+                src="src/assets/paw.svg"
+                alt="Ícone de pet."
+              />
+              <input
+                class="form-input"
+                type="text"
+                id="pet-name"
+                name="pet-name"
+                placeholder="Cheddar"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="phone">Telefone</label>
+            <div class="form-field tel">
+              <img
+                class="form-icon"
+                src="src/assets/phone.svg"
+                alt="Ícone de telefone."
+              />
+              <input
+                class="form-input"
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="(00) 0 0000-0000"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="service-description"
+              >Descrição do serviço</label
+            >
+            <div class="form-field textarea">
+              <textarea
+                class="form-input textarea-input"
+                id="service-description"
+                name="service-description"
+                placeholder="Banho e tosa"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group date-group">
+              <label class="form-label" for="appointment-date">Data</label>
+              <div class="form-field date">
+                <img
+                  class="form-icon"
+                  src="src/assets/calendar.svg"
+                  alt="Ícone de calendário."
+                />
+                <input
+                  class="form-input"
+                  type="date"
+                  id="appointment-date"
+                  name="appointment-date"
+                  required
+                />
+                <img
+                  class="form-arrow"
+                  src="src/assets/select.svg"
+                  alt="Ícone de seleção."
+                />
+              </div>
+            </div>
+
+            <div class="form-group time-group">
+              <label class="form-label" for="appointment-time">Hora</label>
+              <div class="form-field select">
+                <img
+                  class="form-icon"
+                  src="src/assets/clock.svg"
+                  alt="Ícone de relógio."
+                />
+                <select
+                  class="form-input"
+                  id="appointment-time"
+                  name="appointment-time"
+                  required
+                >
+                  <option value="" disabled selected hidden>09:00</option>
+                  <option value="09">09:00</option>
+                  <option value="10">10:00</option>
+                  <option value="11">11:00</option>
+                  <option value="12">12:00</option>
+                  <option value="13">13:00</option>
+                  <option value="14">14:00</option>
+                  <option value="15">15:00</option>
+                  <option value="16">16:00</option>
+                  <option value="17">17:00</option>
+                  <option value="18">18:00</option>
+                  <option value="19">19:00</option>
+                  <option value="20">20:00</option>
+                  <option value="21">21:00</option>
+                  <option value="22">22:00</option>
+                </select>
+                <img
+                  class="form-arrow"
+                  src="src/assets/select.svg"
+                  alt="Ícone de seleção."
+                />
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
-     </div>
+    </div>
   </body>
 </html>
