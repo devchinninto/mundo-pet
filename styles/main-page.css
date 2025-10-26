@@ -74,6 +74,44 @@
   outline: none;
 }
 
+.schedules {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.period {
+  background: var(--bg-tertiary);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.period-header {
+  display: flex;
+  align-items: center;
+  padding: .75rem 1.25rem;
+  border-bottom: 1px solid var(--border-divisor);
+  gap: .75rem;
+}
+
+.period-header .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.period-title {
+  color: var(--content-primary);
+  font: var(--label-large);
+  flex: 1;
+}
+
+.period-time {
+  color: var(--content-secondary);
+  font: var(--label-large);
+}
+
 @media (480px >= width <= 809px) {
   .main {
     padding-inline: 2rem;
