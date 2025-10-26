@@ -94,6 +94,7 @@
       <button
         type="button"
         class="btn primary add-appointment"
+        id="add-appointment"
         title="Criar novo agendamento."
       >
         Novo agendamento
@@ -101,7 +102,7 @@
     </main>
 
     <!-- New appointment -->
-    <div class="modal hidden">
+    <div id="modal" class="modal hidden">
       <div
         class="modal-content"
         role="dialog"
@@ -115,7 +116,7 @@
               Preencha os dados do cliente para realizar o agendamento:
             </p>
           </div>
-          <button type="button" class="modal-close" aria-label="Fechar">
+          <button type="button" id="modal-close" class="modal-close" aria-label="Fechar">
             <img
               class="modal-close-icon"
               src="src/assets/close.svg"
@@ -261,7 +262,7 @@
           </div>
 
           <footer class="form-footer">
-            <button type="submit" class="btn modal-btn">AGENDAR</button>
+            <button type="submit" class="btn modal-btn submit-appointment">AGENDAR</button>
           </footer>
         </form>
       </div>
