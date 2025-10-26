@@ -30,7 +30,7 @@
   background-color: transparent;
 }
 
-.modal ::-webkit-scrollbar-thumb {
+.modal::-webkit-scrollbar-thumb {
   background: var(--content-secondary);
 }
 
@@ -215,8 +215,13 @@
 }
 
 /* Date and Time inputs */
+.date, .time-group {
+  cursor: pointer;
+} 
+
 .form-field.date .form-input,
 .form-field.time .form-input {
+  cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: textfield;
   appearance: none;
