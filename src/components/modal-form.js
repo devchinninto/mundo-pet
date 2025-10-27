@@ -1,3 +1,5 @@
+import { validateTimeOptions } from '../utils/validators.js'
+
 const newAppointmentBtn = document.getElementById('add-appointment')
 const modal = document.getElementById('modal')
 const closeModalBtn = document.getElementById('modal-close')
@@ -5,6 +7,11 @@ const form = document.getElementById('form')
 
 export function removeClassHidden (){
   modal.classList.remove('hidden')
+
+  const dateInput = document.getElementById('appointment-date')
+  const timeSelect = document.getElementById('appointment-time')
+  
+  validateTimeOptions(dateInput, timeSelect)
 }
 
 export function addClassHidden(){

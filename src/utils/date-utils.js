@@ -33,12 +33,15 @@ function openDatePicker(event) {
 
 // Função para abrir o select de horários.
 function openSelect(event) {
-  const input = event.currentTarget.querySelector('select')
+  if (event.target.tagName === 'SELECT') {
+    return // Adiciono essa verficação aqui para impedir que o picker seja reaberto quando o usuário está interagindo com o select
+  }
+  
+  const select = event.currentTarget.querySelector('select')
   
   try {
-    input.showPicker()
-
+    select.showPicker()
   } catch (error) {
-    input.focus()
+    select.focus()
   }
 }
