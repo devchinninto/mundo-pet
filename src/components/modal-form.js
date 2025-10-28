@@ -1,5 +1,6 @@
 import { validateTimeOptions } from '../utils/validators.js'
-import { newAppointment } from '../services/api.js'
+import { getAppointmentsByDay, newAppointment } from '../services/api.js'
+import { renderSchedule } from './schedule.js'
 
 const newAppointmentBtn = document.getElementById('add-appointment')
 const modal = document.getElementById('modal')
@@ -41,6 +42,12 @@ async function handleFormSubmit(e) {
       addClassHidden()
       form.reset()
     }
+
+    // Atualização da renderização lista de agendamentos 
+    const dateFilter = document.getElementById('date-filter')
+    const selectedDate = dateFilter.value
+    const appointments = await getAppointmentsByDay({ date: selectedDate })
+    renderSchedule(appointments)
 
   } catch (error) {
     alert('Não foi possível realizar o agendamento. Tente novamente.')
