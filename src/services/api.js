@@ -1,7 +1,7 @@
 import { apiConfig } from './api-config.js'
 
 
-export async function getAppointmentsByDay(date) {
+export async function getAppointmentsByDay({ date }) {
 
   try {
     // Vou buscar no endpoint a resposta, e o json-server filtra usando query params
@@ -14,8 +14,8 @@ export async function getAppointmentsByDay(date) {
     }
     
     // Converter em json
-    const data = await response.json() 
-    return data
+    const dailySchedules = await response.json() 
+    return dailySchedules
 
   } catch (error) {
     console.log('ERROR:', error)

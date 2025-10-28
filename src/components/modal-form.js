@@ -1,5 +1,5 @@
 import { validateTimeOptions } from '../utils/validators.js'
-import { getAppointmentsByDay, newAppointment } from '../services/api.js'
+import { newAppointment } from '../services/api.js'
 
 const newAppointmentBtn = document.getElementById('add-appointment')
 const modal = document.getElementById('modal')
