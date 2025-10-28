@@ -1,0 +1,10 @@
+POST http://localhost:3333/appointments
+content-type: application/json
+
+{
+    "tutor": "marcelle",
+    "pet": "pingo",
+    "phone": "12356",
+    "service": "tosa",
+    "datetime": ""
+}

@@ -1,10 +1,12 @@
 import { validateTimeOptions } from '../utils/validators.js'
+import { newAppointment } from '../services/api.js'
 
 const newAppointmentBtn = document.getElementById('add-appointment')
 const modal = document.getElementById('modal')
 const closeModalBtn = document.getElementById('modal-close')
 const form = document.getElementById('form')
 
+// Função pura para remover a classe 'hidden'.
 export function removeClassHidden (){
   modal.classList.remove('hidden')
 
@@ -14,6 +16,7 @@ export function removeClassHidden (){
   validateTimeOptions(dateInput, timeSelect)
 }
 
+// Função pura para adicionar a classe 'hidden'.
 export function addClassHidden(){
   modal.classList.add('hidden')
 }
@@ -22,14 +25,18 @@ export function initModal() {
   newAppointmentBtn.addEventListener('click', removeClassHidden)
   closeModalBtn.addEventListener('click', addClassHidden)
   form.addEventListener('submit', handleFormSubmit)
+
 }
 
 // Função pura para lidar com o evento de submit do form.
-function handleFormSubmit(e) {
+async function handleFormSubmit(e) {
   e.preventDefault()
 
   const formData = getFormData()
-  console.log(formData)
+
+  // Em 'newApponintment(formData)' eu posso passar só essa função porque nela eu retorno tudo desestruturado, então seria redundante digitar todos os parâmetros novamente, o JS já entende o que eu estou passando e desestrutura para mim.
+  const result = await newAppointment(formData)
+  console.log('Agendamento criado:', result)
 }
 
 function getFormData() {
@@ -48,6 +55,5 @@ function getFormData() {
       service: serviceInput.value.trim(),
       date: dateInput.value,
       time: timeInput.value
-    }
-    
+    }  
 }
