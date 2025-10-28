@@ -1,19 +1,27 @@
 import { apiConfig } from './api-config.js'
 
-// async function getAppointmentsByDay({ date }) {
 
-//   try {
-//     // Vou buscar no endpoint a resposta
-//     const response = await fetch(`${apiConfig.baseUrl}/appointments`)
-//     // Converter em json
-//     const data = await response.json() 
+export async function getAppointmentsByDay(date) {
+
+  try {
+    // Vou buscar no endpoint a resposta, e o json-server filtra usando query params
+    const response = await fetch(`${apiConfig.baseUrl}/appointments?date=${date}`)
     
+    if(!response.ok) {
+      console.log('Erro:', response.status)
+      alert('Não foi possível buscar os agendamentos. Tente novamente.')
+      return
+    }
+    
+    // Converter em json
+    const data = await response.json() 
+    return data
 
-//   } catch (error) {
-//     console.log('ERROR:', error)
-//     alert('Não foi possível carregar os agendamentos do dia.')
-//   }
-// }
+  } catch (error) {
+    console.log('ERROR:', error)
+    alert('Não foi possível carregar os agendamentos do dia.')
+  }
+}
 
 export async function newAppointment({ tutor, pet, phone, service, date, time }) {
 

@@ -1,5 +1,5 @@
 import { validateTimeOptions } from '../utils/validators.js'
-import { newAppointment } from '../services/api.js'
+import { getAppointmentsByDay, newAppointment } from '../services/api.js'
 
 const newAppointmentBtn = document.getElementById('add-appointment')
 const modal = document.getElementById('modal')
@@ -25,7 +25,6 @@ export function initModal() {
   newAppointmentBtn.addEventListener('click', removeClassHidden)
   closeModalBtn.addEventListener('click', addClassHidden)
   form.addEventListener('submit', handleFormSubmit)
-
 }
 
 // Função pura para lidar com o evento de submit do form.
