@@ -41,7 +41,7 @@ try {
 
   } catch (error) {
     console.log(error)
-    alert('Não foi possível realizar o agendamento. Tente novamente.')
+    throw new Error('Não foi possível realizar o agendamento. Tente novamente.')
   }
 
 }

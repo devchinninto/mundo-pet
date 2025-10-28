@@ -35,8 +35,18 @@ async function handleFormSubmit(e) {
   const formData = getFormData()
 
   // Em 'newApponintment(formData)' eu posso passar só essa função porque nela eu retorno tudo desestruturado, então seria redundante digitar todos os parâmetros novamente, o JS já entende o que eu estou passando e desestrutura para mim.
-  const result = await newAppointment(formData)
-  console.log('Agendamento criado:', result)
+  try {
+    const result = await newAppointment(formData)
+
+    if (result) {
+      addClassHidden()
+      form.reset()
+    }
+
+  } catch (error) {
+    alert('Não foi possível realizar o agendamento. Tente novamente.')
+    console.log('Erro:', error)
+  }
 }
 
 function getFormData() {
