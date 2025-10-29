@@ -8,16 +8,21 @@ const modal = document.getElementById('modal')
 const closeModalBtn = document.getElementById('modal-close')
 const form = document.getElementById('form')
 
-// Função pura para remover a classe 'hidden'.
-export function removeClassHidden (){
-  modal.classList.remove('hidden')
-
+// Helper para validar e atualizar os time slots disponíveis de acordo com a data.
+async function loadAndValidateTimeSlots() {
   const dateInput = document.getElementById('appointment-date')
   const timeSelect = document.getElementById('appointment-time')
+  const selectedDate = dateInput.value
   
-  
-  // Validação para que o modal abra com a data atual e bloqueie os horários passados.
-  validateTimeOptions(dateInput, timeSelect)
+  const appointments = await getAppointmentsByDay({ date: selectedDate })
+  validateTimeOptions(dateInput, timeSelect, appointments)
+}
+
+// Função pura para remover a classe 'hidden'.
+export async function removeClassHidden (){
+  modal.classList.remove('hidden')
+
+  await loadAndValidateTimeSlots()
 }
 
 // Função pura para adicionar a classe 'hidden'.
@@ -29,6 +34,12 @@ export function initModal() {
   newAppointmentBtn.addEventListener('click', removeClassHidden)
   closeModalBtn.addEventListener('click', addClassHidden)
   form.addEventListener('submit', handleFormSubmit)
+
+  const dateInput = document.getElementById('appointment-date')
+  dateInput.addEventListener('input', async () => {
+    // Só chama o helper!
+    await loadAndValidateTimeSlots()
+  })
 }
 
 // Função pura para lidar com o evento de submit do form.

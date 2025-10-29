@@ -328,6 +328,7 @@
   .appointment .content {
     flex-wrap: nowrap;
     gap: 1rem;
+    padding-block: 0;
   }
 
   .appointment .time {
