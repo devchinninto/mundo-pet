@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Inter+Tight:wght@700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="src/styles/index.css" />
+    <!-- <link rel="stylesheet" href="src/styles/index.css" /> -->
   <link rel="icon" href="paw.svg"><script defer src="main.js"></script></head>
   <body>
     <header class="header">
@@ -26,7 +26,7 @@
           </p>
         </div>
 
-        <div class="date-picker" title="Selecione uma data.">
+        <div id="date-picker" class="date-picker" title="Selecione uma data.">
           <img
             src="./src/assets/calendar.svg"
             alt="Ícone de calendário."
@@ -34,7 +34,7 @@
           />
           <input
             type="date"
-            id="date"
+            id="date-filter"
             name="date"
             class="input"
             title="Selecione uma data."
@@ -94,6 +94,7 @@
       <button
         type="button"
         class="btn primary add-appointment"
+        id="add-appointment"
         title="Criar novo agendamento."
       >
         Novo agendamento
@@ -101,7 +102,7 @@
     </main>
 
     <!-- New appointment -->
-    <div class="modal ">
+    <div id="modal" class="modal hidden">
       <div
         class="modal-content"
         role="dialog"
@@ -115,7 +116,7 @@
               Preencha os dados do cliente para realizar o agendamento:
             </p>
           </div>
-          <button type="button" class="modal-close" aria-label="Fechar">
+          <button type="button" id="modal-close" class="modal-close" aria-label="Fechar">
             <img
               class="modal-close-icon"
               src="src/assets/close.svg"
@@ -200,7 +201,7 @@
           <div class="form-row">
             <div class="form-group date-group">
               <label class="form-label" for="appointment-date">Data</label>
-              <div class="form-field date">
+              <div id="appointment-date-wrapper" class="form-field date">
                 <img
                   class="form-icon"
                   src="src/assets/calendar.svg"
@@ -223,7 +224,7 @@
 
             <div class="form-group time-group">
               <label class="form-label" for="appointment-time">Hora</label>
-              <div class="form-field select">
+              <div id="select-wrapper" class="form-field select">
                 <img
                   class="form-icon"
                   src="src/assets/clock.svg"
@@ -236,20 +237,20 @@
                   required
                 >
                   <option value="" disabled selected hidden>09:00</option>
-                  <option value="09">09:00</option>
-                  <option value="10">10:00</option>
-                  <option value="11">11:00</option>
-                  <option value="12">12:00</option>
-                  <option value="13">13:00</option>
-                  <option value="14">14:00</option>
-                  <option value="15">15:00</option>
-                  <option value="16">16:00</option>
-                  <option value="17">17:00</option>
-                  <option value="18">18:00</option>
-                  <option value="19">19:00</option>
-                  <option value="20">20:00</option>
-                  <option value="21">21:00</option>
-                  <option value="22">22:00</option>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="13:00">13:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00">19:00</option>
+                  <option value="20:00">20:00</option>
+                  <option value="21:00">21:00</option>
+                  <option value="22:00">22:00</option>
                 </select>
                 <img
                   class="form-arrow"
@@ -261,7 +262,7 @@
           </div>
 
           <footer class="form-footer">
-            <button type="submit" class="btn modal-btn">AGENDAR</button>
+            <button type="submit" class="btn modal-btn submit-appointment">AGENDAR</button>
           </footer>
         </form>
       </div>
