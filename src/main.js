@@ -9,6 +9,7 @@ import { initModal } from './components/modal-form.js'
 import { initDatePickers } from './utils/date-utils.js'
 import { getAppointmentsByDay } from './services/api.js'
 import { renderSchedule } from './components/schedule.js'
+import { cancelAppointment } from './components/schedule.js'
 const dateFilterInput = document.getElementById('date-filter')
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -23,6 +24,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('Erro:', error)
     alert('Falha ao carregar agendamentos.')
   }
+
+ 
 })
 
 dateFilterInput.addEventListener('change', async (e) => {

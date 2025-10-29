@@ -1,6 +1,6 @@
 import { apiConfig } from './api-config.js'
 
-
+// Recuperar os dados de agendamentos
 export async function getAppointmentsByDay({ date }) {
 
   try {
@@ -23,9 +23,10 @@ export async function getAppointmentsByDay({ date }) {
   }
 }
 
+// Fazer um novo agendamento
 export async function newAppointment({ tutor, pet, phone, service, date, time }) {
 
-try {
+  try {
  // Fazer a requisição para enviar os dados de um novo agendamento. 
     const response = await fetch(`${apiConfig.baseUrl}/appointments`, {
     method: 'POST', // Fazer o envio dos dados com o método POST.
@@ -52,4 +53,30 @@ try {
     throw new Error('Não foi possível realizar o agendamento. Tente novamente.')
   }
 
+}
+
+// Deletar um agendamento
+export async function deleteAppointment({ id }) {
+
+  try {
+    // Vou buscar no endpoint a resposta, e o json-server filtra usando query params
+    const response = await fetch(`${apiConfig.baseUrl}/appointments/${id}`, {
+      method: 'DELETE'
+    })
+
+    // Tratamento de erro
+    if (!response.ok) {
+      console.log('Erro:', response.status)
+      alert('Erro ao deletar o agendamento.')
+      return
+    }
+    
+    console.log(`Agendamento ${id} removido com sucesso.`)
+    alert('Agendamento removido com sucesso.')
+    return
+
+  } catch (error) {
+    console.log('Erro:', error)
+    alert('Não foi possível deletar o agendamento.')
+  }
 }

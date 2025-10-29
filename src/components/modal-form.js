@@ -1,6 +1,7 @@
 import { validateTimeOptions } from '../utils/validators.js'
 import { getAppointmentsByDay, newAppointment } from '../services/api.js'
 import { renderSchedule } from './schedule.js'
+import { getCurrentDate } from '../libs/dayjs.js'
 
 const newAppointmentBtn = document.getElementById('add-appointment')
 const modal = document.getElementById('modal')
@@ -14,6 +15,8 @@ export function removeClassHidden (){
   const dateInput = document.getElementById('appointment-date')
   const timeSelect = document.getElementById('appointment-time')
   
+  
+  // Validação para que o modal abra com a data atual e bloqueie os horários passados.
   validateTimeOptions(dateInput, timeSelect)
 }
 
@@ -38,9 +41,13 @@ async function handleFormSubmit(e) {
   try {
     const result = await newAppointment(formData)
 
+    
     if (result) {
       addClassHidden()
       form.reset()
+
+      const dateInput = document.getElementById('appointment-date')
+      dateInput.value = getCurrentDate()
     }
 
     // Atualização da renderização lista de agendamentos 
