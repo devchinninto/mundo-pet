@@ -2,7 +2,7 @@
 
 Sistema de gerenciamento de agendamentos para petshop, desenvolvido como projeto prático do curso de Formação Full-Stack da Rocketseat para finalizar o módulo de JavaScript Intermediário.
 
-> 🎨 [Design original no Figma](https://www.figma.com/community/file/1448075887683449642/mundo-pet) criado pela Rocketseat
+> 🎨 [Design original no Figma](https://www.figma.com/community/file/1402272413594042585) criado pela Rocketseat
 
 ---
 
@@ -23,7 +23,7 @@ Sistema de gerenciamento de agendamentos para petshop, desenvolvido como projeto
 
 ## 📸 Preview
 
-### 🌐 [Acesse a aplicação online](https://seu-usuario.github.io/mundo-pet)
+### 🌐 [Acesse a aplicação online](https://devchinninto.github.io/mundo-pet)
 
 ### 🎥 Demonstração
 
@@ -142,9 +142,13 @@ mundo-pet/
 
 A forma mais rápida de testar a aplicação:
 
-**[👉 Acessar Mundo Pet Online](https://seu-usuario.github.io/mundo-pet)**
+**[👉 Acessar Mundo Pet Online](https://devchinninto.github.io/mundo-pet)**
 
-> ⚠️ **Nota**: A versão online usa dados mockados localmente. Para testar todas as funcionalidades com persistência de dados, execute o projeto localmente.
+> ⚠️ **Nota sobre a versão online**: 
+> A aplicação no GitHub Pages não possui backend ativo. 
+> Os alertas de erro ao carregar são esperados, já que o JSON Server 
+> não está disponível. Para testar todas as funcionalidades com 
+> persistência de dados, execute o projeto localmente.
 
 ---
 
@@ -158,7 +162,7 @@ A forma mais rápida de testar a aplicação:
 
 1. Clone o repositório
 ```bash
-git clone https://github.com/seu-usuario/mundo-pet.git
+git clone https://github.com/devchinninto/mundo-pet.git
 cd mundo-pet
 ```
 
@@ -280,7 +284,7 @@ Contribuições são sempre bem-vindas! Se você tem alguma sugestão para melho
 
 ## 📄 Licença
 
-Este projeto foi desenvolvido como parte do curso da Rocketseat e é de uso educacional.
+Este projeto foi desenvolvido como parte do curso da Rocketseat.
 
 ---
 
@@ -288,17 +292,17 @@ Este projeto foi desenvolvido como parte do curso da Rocketseat e é de uso educ
 
 **Marcelle**
 
-Desenvolvedora Full-Stack em transição de carreira | Background em tradução técnica e ensino de inglês
+| Desenvolvedora Full-Stack em transição de carreira |
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/seu-perfil)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/seu-usuario)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marcellealves-dev/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/devchinninto)
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:seu-email@exemplo.com)
 
 ---
 
 ## 🎨 Créditos
 
-- **Design**: [Rocketseat](https://www.rocketseat.com.br) - [Figma Community](https://www.figma.com/community/file/1448075887683449642/mundo-pet)
+- **Design**: [Rocketseat](https://www.rocketseat.com.br) - [Figma Community](https://www.figma.com/community/file/1402272413594042585)
 - **Formação**: [Rocketseat - Full-Stack](https://www.rocketseat.com.br)
 
 ---
@@ -307,6 +311,6 @@ Desenvolvedora Full-Stack em transição de carreira | Background em tradução 
 
 ⭐ Desenvolvido com dedicação durante a Formação Full-Stack da Rocketseat
 
-**Se este projeto te ajudou, deixe uma ⭐!**
+**Se você gostou deste projeto, deixe uma ⭐!**
 
 </div>
