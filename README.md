@@ -27,9 +27,9 @@ Sistema de gerenciamento de agendamentos para petshop, desenvolvido como projeto
 
 ### 🎥 Demonstração
 
-![Demo da aplicação](./docs/demo.gif)
+![Demo da aplicação](./.github/assets/demo.gif)
 
-*Navegação pela aplicação, criação e remoção de agendamentos*
+_Navegação pela aplicação, criação e remoção de agendamentos_
 
 ---
 
@@ -47,41 +47,42 @@ Sistema de gerenciamento de agendamentos para petshop, desenvolvido como projeto
 ---
 
 ## 🎯 Diagrama de Funcionalidades
+
 ```mermaid
 flowchart TD
     A[Usuário] -->|Acessa| B[Mundo Pet]
-    
+
     B -->|Visualiza| C[Lista de Agendamentos]
     C -->|Filtra por| D[Data Selecionada]
-    
+
     B -->|Clica em| E[Novo Agendamento]
     E -->|Abre| F[Modal de Formulário]
-    
+
     F -->|Valida| G{Horário Válido?}
     G -->|Não - Passado| H[Desabilita Option]
     G -->|Não - Duplicado| H
     G -->|Sim| I[Habilita Option]
-    
+
     F -->|Preenche| J[Dados do Cliente]
     J -->|Envia| K[POST /appointments]
-    
+
     K -->|Sucesso| L[Atualiza Lista]
     L -->|Renderiza| M[Cards por Período]
-    
+
     M -->|Manhã 9h-12h| N1[Appointments Morning]
     M -->|Tarde 13h-18h| N2[Appointments Afternoon]
     M -->|Noite 19h-21h| N3[Appointments Night]
-    
+
     M -->|Clica Remover| O[DELETE /appointments/:id]
     O -->|Remove do DOM| L
-    
+
     D -->|Muda Data| P[GET /appointments?date=X]
     P -->|Retorna| L
-    
+
     K -.->|Armazena| Q[(JSON Server)]
     P -.->|Busca| Q
     O -.->|Remove de| Q
-    
+
     style B fill:#9282FA
     style Q fill:#2D2D2D
     style K fill:#4CAF50
@@ -94,21 +95,25 @@ flowchart TD
 ## 🛠️ Tecnologias Utilizadas
 
 ### Core
+
 - **HTML5** - Estrutura semântica
 - **CSS3** - Estilização e responsividade
 - **JavaScript (ES6+)** - Lógica da aplicação
 
 ### Build & Dev Tools
+
 - **Webpack** - Module bundler
 - **Babel** - Transpilador JavaScript
 
 ### Bibliotecas
+
 - **Day.js** - Manipulação de datas
 - **JSON Server** - Mock API REST
 
 ---
 
 ## 📁 Estrutura do Projeto
+
 ```
 mundo-pet/
 ├── public/
@@ -144,10 +149,10 @@ A forma mais rápida de testar a aplicação:
 
 **[👉 Acessar Mundo Pet Online](https://devchinninto.github.io/mundo-pet)**
 
-> ⚠️ **Nota sobre a versão online**: 
-> A aplicação no GitHub Pages não possui backend ativo. 
-> Os alertas de erro ao carregar são esperados, já que o JSON Server 
-> não está disponível. Para testar todas as funcionalidades com 
+> ⚠️ **Nota sobre a versão online**:
+> A aplicação no GitHub Pages não possui backend ativo.
+> Os alertas de erro ao carregar são esperados, já que o JSON Server
+> não está disponível. Para testar todas as funcionalidades com
 > persistência de dados, execute o projeto localmente.
 
 ---
@@ -155,38 +160,45 @@ A forma mais rápida de testar a aplicação:
 ### 💻 Execução Local
 
 #### Pré-requisitos
+
 - Node.js (v14 ou superior)
 - npm ou yarn
 
 #### Instalação
 
 1. Clone o repositório
+
 ```bash
 git clone https://github.com/devchinninto/mundo-pet.git
 cd mundo-pet
 ```
 
 2. Instale as dependências
+
 ```bash
 npm install
 ```
 
 3. Inicie o JSON Server (API mock)
+
 ```bash
 npm run server
 ```
 
 4. Em outro terminal, inicie o servidor de desenvolvimento
+
 ```bash
 npm run dev
 ```
 
 5. Acesse no navegador
+
 ```
 http://localhost:8080
 ```
 
 #### Build para Produção
+
 ```bash
 npm run build
 ```
@@ -198,18 +210,19 @@ Os arquivos otimizados estarão na pasta `dist/`.
 ## 🔌 API Endpoints
 
 ### Base URL
+
 ```
 http://localhost:3333
 ```
 
 ### Rotas
 
-| Método | Rota | Descrição | Body |
-|--------|------|-----------|------|
-| GET | `/appointments` | Lista todos os agendamentos | - |
-| GET | `/appointments?date=YYYY-MM-DD` | Filtra por data | - |
-| POST | `/appointments` | Cria novo agendamento | `{ tutor, pet, phone, service, date, time }` |
-| DELETE | `/appointments/:id` | Remove agendamento | - |
+| Método | Rota                            | Descrição                   | Body                                         |
+| ------ | ------------------------------- | --------------------------- | -------------------------------------------- |
+| GET    | `/appointments`                 | Lista todos os agendamentos | -                                            |
+| GET    | `/appointments?date=YYYY-MM-DD` | Filtra por data             | -                                            |
+| POST   | `/appointments`                 | Cria novo agendamento       | `{ tutor, pet, phone, service, date, time }` |
+| DELETE | `/appointments/:id`             | Remove agendamento          | -                                            |
 
 ---
 
@@ -223,12 +236,14 @@ O sistema implementa duas camadas de validação:
 2. **Horários Duplicados**: Desabilita horários que já possuem agendamentos
 
 Ambas as validações são dinâmicas e atualizam quando:
+
 - O modal é aberto
 - O usuário muda a data no formulário
 
 ### Organização por Períodos
 
 Os agendamentos são automaticamente organizados em:
+
 - **Manhã**: 9h às 12h
 - **Tarde**: 13h às 18h
 - **Noite**: 19h às 21h
@@ -250,6 +265,7 @@ Os agendamentos são automaticamente organizados em:
 ## 🎓 Aprendizados
 
 Este projeto consolidou conhecimentos em:
+
 - Manipulação avançada do DOM
 - Requisições HTTP com Fetch API
 - Async/Await e Promises

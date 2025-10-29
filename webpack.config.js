@@ -9,7 +9,9 @@ module.exports = {
   entry: path.resolve(__dirname, 'src', 'main.js'),
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'docs'),
+    publicPath: './',
+    clean: true
   },
 
   devServer: {
@@ -30,7 +32,7 @@ module.exports = {
       patterns: [
         {
           from: path.resolve(__dirname, 'src', 'assets'),
-          to: path.resolve(__dirname, 'dist', 'src', 'assets')
+          to: path.resolve(__dirname, 'docs', 'assets')
         }
       ]
     }),
